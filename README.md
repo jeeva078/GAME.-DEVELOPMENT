@@ -21,10 +21,64 @@
    Step 7 : stop.
 
 **Program :**
+```
+#include <stdio.h>
+#include <conio.h>
+#include <graphics.h>
+#include <stdlib.h>
+#include <math.h>
 
+int main() {
+    int gd = DETECT, gm;
+    int xa, xb, ya, yb;
+    int dx, dy, x, y, xend, p;
+
+    initgraph(&gd, &gm, "C:\\Turboc3\\BGI");  // Path may vary in your setup
+
+    printf("Enter the first endpoint (xa, ya): ");
+    scanf("%d %d", &xa, &ya);
+    printf("Enter the second endpoint (xb, yb): ");
+    scanf("%d %d", &xb, &yb);
+
+    dx = abs(xb - xa);
+    dy = abs(yb - ya);
+    p = 2 * dy - dx;
+
+    if (xa > xb) {
+        x = xb;
+        y = yb;
+        xend = xa;
+    } else {
+        x = xa;
+        y = ya;
+        xend = xb;
+    }
+
+    putpixel(x, y, 6);
+
+    while (x < xend) {
+        x++;
+        if (p < 0) {
+            p += 2 * dy;
+        } else {
+            y++;
+            p += 2 * (dy - dx);
+        }
+        putpixel(x, y, 6);
+    }
+
+    getch();
+    closegraph();
+    return 0;
+}
+Program to implement the Bresenham’s  algorithm for line using a c coding.
+
+```
 
 **Output :**
+![Screenshot (6)](https://github.com/user-attachments/assets/7efc6ee1-d904-4251-907a-e5bbeffc0ff1)
 
 
 **Result :**
+ To  implement the Bresenham’s  algorithm for line using a c coding is verified sucessfully
 
